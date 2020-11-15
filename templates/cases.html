@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Тумбочки из экокожи и текстиля.</title>
+{% endblock %}
+
+{% block body%}
+    <div class="row px-3 pb-md-4 ">
+       <div class="pricing-header text-center mx-auto">
+           <h1 class="text-center block-title">Каталог тумбочек обтянутых в материале от производителя.</h1>
+       </div>
+    </div>
+    <div class="row">
+       {% for el in cases %}
+        <div class="col-md-12">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <h3 class="mb-0 block-title">{{ el.title }}</h3>
+              <p class="card-text mb-auto">{{ el.description }}</p>
+                <div class="mb-1 text-muted">{{ el.price }} руб.</div>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img width="100%" src="{{ url_for('static', filename=el.image) }}" alt="{{ el.title }}">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="px-3 pb-md-4 mx-auto ">
+        <p class="lead">Прикроватная тумбочка является очень удобным дополнением к кровати. Кровать с прикроватными тумбочками с обеих сторон изголовья создают полноценную уютную спальню. В тумбочку чаще всего помещаются полезные предметы, такие как книга или мобильный телефон. Самые необходимые вещи, которые нужны возле кровати, размещаются на тумбочке.
+        </p>
+        <p class="lead">В нашем магазине мы предлагаем купить кровать с прикроватными тумбочками, изготовленными на заказ. Размеры каждой из представленных моделей тумбочек – ширина, высота и глубина – могут изменяться в зависимости от выбранной модели кровати и ее габаритов.
+        </p>
+        <p class="lead">Высота тумбочки чаще всего выбирается либо до середины матраса, либо одной высоты со спальным местом, все зависит от моделей кровати и тумбочки. Стандартной шириной тумбы является 40..50 см, глубина чаще всего варьируется от 30 до 35 см.
+        </p>
+        <p class="lead">Заказать кровать с тумбочкой либо узнать дополнительную информацию можно позвонив по телефону: <a href="tel:+375445336661">+375 44 533 66 61</a> (Velcom)</p>
+        </p>
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Пуфики из текстиля - цены от 300 рублей.</title>
+{% endblock %}
+
+{% block body%}
+    <div class="row px-3 pb-md-4 ">
+       <div class="pricing-header text-center mx-auto">
+           <h1 class="text-center block-title">Каталог пуфов из экокожи и текстиля.</h1>
+       </div>
+    </div>
+    <div class="row">
+       {% for el in poufs %}
+        <div class="col-md-12">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <h3 class="mb-0 block-title">{{ el.title }}</h3>
+              <p class="card-text mb-auto">{{ el.description }}</p>
+                <div class="mb-1 text-muted">{{ el.price }} руб.</div>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img width="100%" src="{{ url_for('static', filename=el.image) }}" alt="{{ el.title }}">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="px-3 pb-md-4 mx-auto ">
+        <p class="lead">    Мягкие пуфики, изготовленные из того же материала, что и кровать, окажутся не только красивым, но и удобным и полезным дополнением к вашему спальному гарнитуру. Согласитесь, стулья в спальне выглядят несколько инородными предметами, а вот пуфы отлично гармонируют с кроватью, дополняют собой антураж и наиболее уместны в интерьере спальной комнаты.
+        </p>
+        <p class="lead">Купить пуфик в Минске, выбрав и заказав его на нашем сайте - отличная идея! Приходите к нам в салон, чтобы убедиться в высоком качестве изделия, выбрать наиболее подходящие размеры пуфа, цвет и фактуру обивочной ткани или экокожи.
+        </p>
+        <p class="lead">Пуф многофункционален, очень удобен и практичен - его можно использовать как тумбочку, или как отдельное место для сидения. Он отлично сочетается с другой мебелью, привнося еще больше комфорта в домашнюю обстановку, например как подставка для ног, когда Вы сидите на кресле или на диване.
+        </p>
+        <p class="lead">Заказать кровать с пуфами в Минске, купить пуф отдельно, либо узнать дополнительную информацию можно позвонив по телефону: <a href="tel:+375445336661">+375 44 533 66 61</a> (Velcom)
+        </p>
+    </div>
+{% endblock %}

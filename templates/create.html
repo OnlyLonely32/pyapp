@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Добавить товар</title>
+{% endblock %}
+
+{% block body%}
+ <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto  container">
+  <h1 class="display-4">Добавить товар</h1><br>
+     <form method="POST" enctype="multipart/form-data">
+         <input type="text" class="form-control" name="title" id="title" placeholder="Введите название продкта"><br>
+         <input type="text" class="form-control" name="description" id="description" placeholder="Введите описание"><br>
+         <input type="text" class="form-control" name="type" id="type" placeholder="Введите тип"><br>
+         <input type="number" class="form-control" name="price" id="price" placeholder="Введите стоимость"><br>
+         <input type="file" name="file" accept="image/*" ><br><br>
+         <button class="btn btn-success">Добавить товар</button>
+     </form>
+</div>
+{% endblock %}
+

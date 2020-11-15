@@ -1,0 +1,100 @@
+{% extends 'basetemp.html' %}
+
+{% block title%}
+    <title>Купить кровать в Минске из массива и экокожи недорого. Изготовление мебели по индивидуальному заказу.</title>
+{% endblock %}
+
+{% block hero %}
+    <h1 class="to-animate hero-animate-1">Лучшие двуспальные кровати из массива, экокожи и текстиля в Беларуси</h1>
+{% endblock %}
+
+{% block body%}
+    <div class="col-md-12 heading text-center"><h2>Кровати из массива, экокожи, текстиля любых размеров под заказ! Бесплатно привезем и установим! Звоните!</h2></div>
+
+    <div class="col-md-12 text-center"><h2>Новые модели кроватей</h2></div>
+    {% for el in lastAdd %}
+        <div class="col-md-6 col-sm-6 col-xs-12 col-xxs-12 text-center fh5co-work-item">
+            <a href="{{ url_for('card', id=el.id) }}">
+                <figure class="figure-responsive"><img class="img-responsive" src="{{ url_for('static', filename=el.image) }}" alt="{{ el.title }}"/></figure>
+                <p class="fh5co-category">{{ el.title }} </p>
+                <h3 class="heading">{{ el.price }} руб.</h3>
+            </a>
+        </div>
+    {% endfor %}
+    <div class="col-md-12 text-center"><h2>Наша продукция</h2></div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 animate-box fadeInUp animated">
+            <a class="fh5co-card" href="{{ url_for('beds') }}">
+                <figure class="figure-responsive figure-responsive-200"><img src="/static/src/images/photo_bed.jpg" alt="Кровати" class="img-responsive"></figure>
+                <div class="fh5co-card-body">
+                    <h3>Каталог кроватей</h3>
+                    <p>Более 1000 вариантов цветов</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 animate-box fadeInUp animated">
+            <a class="fh5co-card" href="{{ url_for('cases') }}">
+                <figure class="figure-responsive figure-responsive-200"><img src="/static/src/images/photo_case.jpg" alt="Тумбочки" class="img-responsive"></figure>
+                <div class="fh5co-card-body">
+                    <h3>Каталог тумбочек</h3>
+                    <p>Более 20 моделей</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-6 animate-box fadeInUp animated">
+            <a class="fh5co-card" href="{{ url_for('poufs') }}">
+                <figure class="figure-responsive figure-responsive-200"><img src="/static/src/images/photo_puf.jpg" alt="Пуфы" class="img-responsive"></figure>
+                <div class="fh5co-card-body">
+                    <h3>Каталог пуфов</h3>
+                    <p>Популярные модели</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <p style="display: inline-block">Задать интересующие вас вопросы, вызвать дизайнера, заказать кровать можно ежедневно с 9:00 до 21:00 по телефону: <a href="tel:+375445336661" class="stretched-link">+375 44 533 66 61</a> (Velcom)</p>
+
+    <div class="col-md-12 animate-box fadeInUp animated">
+        <h2 class="fh5co-uppercase-heading-sm text-center">Три важных "почему" при выборе кроватей у нас</h2>
+    </div>
+    <div class="col-md-12 animate-box fadeInUp animated">
+    <div class="panel-group fh5co-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default ">
+        <div class="panel-heading collapsed" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <h4 class="panel-title">
+            Почему нужно купить кровать ?
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+          <div class="panel-body">
+            Потому что человек проводит треть своей жизни во сне. И для полноценного, комфортного отдыха Вам жизненно необходима хорошая, качественная, удобная кровать. Это мебель № 1.          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <h4 class="panel-title">
+            Почему именно у нас ?
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false">
+          <div class="panel-body">
+            Потому что мы делаем лучшую спальную мебель из натурального дерева по доступным ценам. Заказывая мебель для спальни у нас, Вы можете быть спокойны за Ваш сон!
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <h4 class="panel-title">
+            Почему именно сейчас ?
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false">
+          <div class="panel-body">
+Потому что надо беречь и любить себя и ценить свое время! Если Ваша кровать устарела или Вы спите на диване, то Вам просто необходимо позаботиться о своем отдыхе и купить кровать, которая станет украшением Вашего интерьера и залогом комфортного, качественного сна. А мы сделаем все возможное, чтобы Вы остались довольны своим приобретением.          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+{% endblock %}

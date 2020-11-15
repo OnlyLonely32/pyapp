@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	{% block title %}{% endblock %}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
+
+
+  	<!-- Facebook and Twitter integration -->
+{#	<meta property="og:title" content=""/>#}
+{#	<meta property="og:image" content=""/>#}
+{#	<meta property="og:url" content=""/>#}
+{#	<meta property="og:site_name" content=""/>#}
+{#	<meta property="og:description" content=""/>#}
+{#	<meta name="twitter:title" content="" />#}
+{#	<meta name="twitter:image" content="" />#}
+{#	<meta name="twitter:url" content="" />#}
+{#	<meta name="twitter:card" content="" />#}
+
+  	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  	<link rel="shortcut icon" href="favicon.ico">
+
+  	<!-- Google Webfont -->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'> -->
+	<!-- Themify Icons -->
+	<link rel="stylesheet" href="/static/src/css/themify-icons.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="/static/src/css/bootstrap.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="/static/src/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/static/src/css/owl.theme.default.min.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="/static/src/css/magnific-popup.css">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="/static/src/css/superfish.css">
+	<!-- Easy Responsive Tabs -->
+	<link rel="stylesheet" href="/static/src/css/easy-responsive-tabs.css">
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="/static/src/css/animate.css">
+	<!-- Theme Style -->
+	<link rel="stylesheet" href="/static/src/css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="/static/src/js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="/static/src/js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+
+		<!-- START #fh5co-header -->
+		<header id="fh5co-header-section" role="header" class="" >
+            <div style="background-color: #fff;" class="col-md-12 text-center"><p style="margin: 0; padding: 10px 0;">Кровати от производителя сроком изготовления - 10 дней. Без предоплаты с бесплатной сборкой и доставкой!</p></div>
+
+			<div class="container">
+
+
+
+				<!-- <div id="fh5co-menu-logo"> -->
+					<!-- START #fh5co-logo -->
+					<h1 id="fh5co-logo" class="pull-left"><a href="{{ url_for('index') }}">BelBeds.by</a></h1>
+
+					<!-- START #fh5co-menu-wrap -->
+					<nav id="fh5co-menu-wrap" role="navigation">
+
+
+						<ul class="sf-menu" id="fh5co-primary-menu">
+{#							<li class="active">#}
+                            <li>
+								<a href="{{ url_for('index') }}">Главная</a>
+							</li>
+
+							<li>
+								<a href="#" class="fh5co-sub-ddown">Каталог</a>
+								 <ul class="fh5co-sub-menu">
+								 	<li><a href="{{ url_for('beds') }}">Кровати</a></li>
+								 	<li><a href="{{ url_for('cases') }}">Тумбочки</a></li>
+                                    <li><a href="{{ url_for('poufs') }}">Пуфы</a></li>
+								</ul>
+							</li>
+							<li><a href="{{ url_for('about') }}">Контакты</a></li>
+						</ul>
+					</nav>
+				<!-- </div> -->
+
+			</div>
+		</header>
+
+
+        {% if hero %}
+        <div id="fh5co-hero" style="background-image: url({{ url_for('static', filename='src/images/slide_1.jpg') }});">
+			<div class="overlay"></div>
+			<a href="#fh5co-main" class="smoothscroll fh5co-arrow to-animate hero-animate-4"><i class="ti-angle-down"></i></a>
+			<!-- End fh5co-arrow -->
+			<div class="container">
+				<div class="col-md-12">
+					<div class="fh5co-hero-wrap">
+						<div class="fh5co-hero-intro">
+							{% block hero %} {% endblock %}
+							<h2 class="to-animate hero-animate-2">Связаться с нами <a class="hero-tel" href="tel:+375445336661" target="_blank">+375 44 533 66 61</a></h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        {% else %}
+            <div id="fh5co-hero" style="height: 98px; background-image: url({{ url_for('static', filename='src/images/slide_1.jpg') }});"><div class="overlay"></div></div>
+        {% endif %}
+		<div id="fh5co-main">
+
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-8 col-md-push-4" id="fh5co-content">
+                        {% block body %}{% endblock %}
+					</div>
+
+					<div class="col-md-4 col-md-pull-8 left-sidebar" id="fh5co-sidebar">
+						<div class="sidebar-box animate-box">
+							<h3 class="sidebar-heading"><span class="border"></span>Каталог кроватей</h3>
+							<ul class="sidebar-links">
+                                {% for el in products %}
+								<li><a href="{{ url_for('card', id=el.id) }}" target="_blank">{{ el.title }}</a></li>
+                                {% endfor %}
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+		<!-- END fhtco-main -->
+
+
+		<footer role="contentinfo" id="fh5co-footer">
+			<a href="#" class="fh5co-arrow fh5co-gotop footer-box"><i class="ti-angle-up"></i></a>
+			<div class="container">
+				<div class="row">
+{#					<div class="col-md-4 col-sm-6 footer-box">#}
+{#						<h3 class="fh5co-footer-heading">Company</h3>#}
+{#						<ul class="fh5co-footer-links">#}
+{#							<li><a href="#">About</a></li>#}
+{#							<li><a href="#">Services</a></li>#}
+{#							<li><a href="#">Our Products</a></li>#}
+{#							<li><a href="#">Our Culture</a></li>#}
+{#							<li><a href="#">Team</a></li>#}
+{#						</ul>#}
+{##}
+{#					</div>#}
+{#					<div class="col-md-4 col-sm-6 footer-box">#}
+{#						<h3 class="fh5co-footer-heading">More Links</h3>#}
+{#						<ul class="fh5co-footer-links">#}
+{#							<li><a href="#">Terms &amp; Conditions</a></li>#}
+{#							<li><a href="#">Our Careers</a></li>#}
+{#							<li><a href="#">Support &amp; FAQ's</a></li>#}
+{#							<li><a href="#">Sign up</a></li>#}
+{#							<li><a href="#">Log in</a></li>#}
+{#						</ul>#}
+{#					</div>#}
+{#					<div class="col-md-4 col-sm-12 footer-box">#}
+{#						<h3 class="fh5co-footer-heading">Get in touch</h3>#}
+{#						<ul class="fh5co-social-icons">#}
+{##}
+{#							<li><a href="#"><i class="ti-google"></i></a></li>#}
+{#							<li><a href="#"><i class="ti-twitter-alt"></i></a></li>#}
+{#							<li><a href="#"><i class="ti-facebook"></i></a></li>#}
+{#							<li><a href="#"><i class="ti-instagram"></i></a></li>#}
+{#							<li><a href="#"><i class="ti-dribbble"></i></a></li>#}
+{#						</ul>#}
+{#					</div>#}
+					<div class="col-md-12 footer-box text-center">
+						<div class="fh5co-copyright">
+						<p>&copy; 2011 - 2020 belbeds.by. All Rights Reserved.</p>
+						</div>
+					</div>
+
+				</div>
+				<!-- END row -->
+				<div class="fh5co-spacer fh5co-spacer-md"></div>
+			</div>
+		</footer>
+
+
+		<!-- jQuery -->
+		<script src="/static/src/js/jquery-1.10.2.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="/static/src/js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="/static/src/js/bootstrap.js"></script>
+		<!-- Owl carousel -->
+		<script src="/static/src/js/owl.carousel.min.js"></script>
+		<!-- Magnific Popup -->
+		<script src="/static/src/js/jquery.magnific-popup.min.js"></script>
+		<!-- Superfish -->
+		<script src="/static/src/js/hoverIntent.js"></script>
+		<script src="/static/src/js/superfish.js"></script>
+		<!-- Easy Responsive Tabs -->
+		<script src="/static/src/js/easyResponsiveTabs.js"></script>
+		<!-- FastClick for Mobile/Tablets -->
+		<script src="/static/src/js/fastclick.js"></script>
+		<!-- Waypoints -->
+		<script src="/static/src/js/jquery.waypoints.min.js"></script>
+		<!-- Main JS -->
+		<script src="/static/src/js/main.js"></script>
+
+        <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym"); ym(69206098, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/69206098" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+	</body>
+</html>
